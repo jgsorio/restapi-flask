@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo:5.0.8
+    ports:
+      - 27017:27017
+    container_name: devops-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+
+  api:
+    build: .
+    ports:
+      - 5000:5000
+    container_name: devops-api
+    volumes:
+      - .:/app
